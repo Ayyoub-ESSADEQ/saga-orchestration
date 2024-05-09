@@ -3,7 +3,7 @@ package com.microservice.payment.DTO;
 public class PaymentRequestDTO {
     private String userId;
     private String orderId;
-    private Double amount;
+    private Double price;
 
     public String getUserId() {
         return userId;
@@ -21,12 +21,12 @@ public class PaymentRequestDTO {
         this.orderId = orderId;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
 }

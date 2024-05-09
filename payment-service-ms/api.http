@@ -1,18 +1,11 @@
-POST http://localhost:8081/debit
+POST http://localhost:8082/create
 Content-Type: application/json
 
 { 
-    "amount": 100.0,
     "userId":"zakaria",
-    "orderId": "order1"
+    "orderId": "order1",
+    "productId": "maticha"
 }
 
 ###
-POST http://localhost:8081/credit
-Content-Type: application/json
-
-{ 
-    "amount": 100.0,
-    "userId":"zakaria",
-    "orderId": "order1"
-}
+GET http://localhost:8082/all

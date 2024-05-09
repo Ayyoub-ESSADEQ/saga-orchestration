@@ -10,7 +10,7 @@
             "type": "java",
             "name": "PaymentApplication",
             "request": "launch",
-            "mainClass": "com.microservice.payment.PaymentApplication",
+            "mainClass": "com.microservice.order.PaymentApplication",
             "projectName": "payment"
         },
         {
@@ -37,6 +37,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.microservice.inventory.InventoryApplication",
             "projectName": "payment",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderApplication<order>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.order.OrderApplication",
+            "projectName": "order",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

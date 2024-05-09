@@ -5,7 +5,6 @@ import com.microservice.payment.utils.PaymentStatus;
 public class PaymentResponseDTO {
     private String userId;
     private String orderId;
-    private Double amount;
     private PaymentStatus status; // <- payment_approved | payment_rejected
 
     public String getUserId() {
@@ -22,14 +21,6 @@ public class PaymentResponseDTO {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
     }
 
     public PaymentStatus getStatus() {

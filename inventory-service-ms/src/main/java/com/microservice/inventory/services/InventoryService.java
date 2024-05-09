@@ -31,6 +31,7 @@ public class InventoryService {
         Inventory product = optionalProduct.get();
 
         if (product.getQuantity() >= 1) {
+            inventoryResponse.setPrice(product.getPrice());
             product.setQuantity(product.getQuantity() - 1);
             inventoryRepository.save(product);
             inventoryResponse.setStatus(InventoryStatus.AVAILABLE);

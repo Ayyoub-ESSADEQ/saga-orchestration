@@ -1,21 +1,9 @@
-package com.microservice.inventory.DTO;
+package com.microservice.order.DTO;
 
-import com.microservice.inventory.utils.InventoryStatus;
-
-public class InventoryResponseDTO {
+public class OrderRequestDTO {
     private String userId;
     private String productId;
     private String orderId;
-    private InventoryStatus status; // <- available | unavailable
-    private Double price;
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
     public String getUserId() {
         return userId;
@@ -39,13 +27,5 @@ public class InventoryResponseDTO {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-
-    public InventoryStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(InventoryStatus status) {
-        this.status = status;
     }
 }

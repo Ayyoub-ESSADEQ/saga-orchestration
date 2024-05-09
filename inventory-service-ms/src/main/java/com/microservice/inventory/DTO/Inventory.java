@@ -11,6 +11,13 @@ public class Inventory {
     @Column(columnDefinition = "VARCHAR(36)")
     private String productId;
     private Integer quantity;
+    private Double price;
+    public Double getPrice() {
+        return price;
+    }
+    public void setPrice(Double price) {
+        this.price = price;
+    }
     public String getProductId() {
         return productId;
     }

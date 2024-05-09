@@ -22,7 +22,6 @@ public class paymentService {
         paymentResponse.setOrderId(request.getOrderId());
         paymentResponse.setUserId(request.getUserId());
         paymentResponse.setStatus(PaymentStatus.PAYMENT_REJECTED);
-        paymentResponse.setAmount(request.getAmount());
 
         if (!optionalUserAcount.isPresent()) {
             return paymentResponse;
@@ -30,8 +29,8 @@ public class paymentService {
 
         UserAccount userAccount = optionalUserAcount.get();
 
-        if (userAccount.getBalance() >= request.getAmount()) {
-            userAccount.setBalance(userAccount.getBalance() - request.getAmount());
+        if (userAccount.getBalance() >= request.getPrice()) {
+            userAccount.setBalance(userAccount.getBalance() - request.getPrice());
             userAccountRepository.save(userAccount);
             paymentResponse.setStatus(PaymentStatus.PAYMENT_APPROVED);
         }
@@ -43,7 +42,7 @@ public class paymentService {
         Optional<UserAccount> optionalUserAcount = userAccountRepository.findById(request.getUserId());
         if (optionalUserAcount.isPresent()) {
             UserAccount userAccount = optionalUserAcount.get();
-            userAccount.setBalance(userAccount.getBalance() + request.getAmount());
+            userAccount.setBalance(userAccount.getBalance() + request.getPrice());
             userAccountRepository.save(userAccount);
         }
     }
