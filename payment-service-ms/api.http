@@ -1,0 +1,18 @@
+POST http://localhost:8081/debit
+Content-Type: application/json
+
+{ 
+    "amount": 100.0,
+    "userId":"zakaria",
+    "orderId": "order1"
+}
+
+###
+POST http://localhost:8081/credit
+Content-Type: application/json
+
+{ 
+    "amount": 100.0,
+    "userId":"zakaria",
+    "orderId": "order1"
+}
