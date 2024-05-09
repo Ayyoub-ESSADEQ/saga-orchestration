@@ -49,6 +49,16 @@
             "projectName": "order",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrchestratorApplication<orchestrator>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.orchestrator.OrchestratorApplication",
+            "projectName": "orchestrator",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
