@@ -4,6 +4,7 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.microservice.orchestrator.DTO.OrderRequestDTO;
+import com.microservice.orchestrator.DTO.OrderRequestUpdateDTO;
 import com.microservice.orchestrator.DTO.OrderResponseDTO;
 
 import reactor.core.publisher.Mono;
@@ -15,26 +16,31 @@ public class OrderStep implements Step<OrderRequestDTO, OrderResponseDTO> {
             .build();
 
     @Override
-    public  Mono<OrderResponseDTO> process(OrderRequestDTO request) {
-        Mono<OrderResponseDTO> orderResponseMono = this.orderWebClient
+    public Mono<OrderResponseDTO> process(OrderRequestDTO request) {
+        return this.orderWebClient
                 .post()
                 .uri("/create")
                 .body(BodyInserters.fromValue(request))
                 .retrieve()
                 .bodyToMono(OrderResponseDTO.class);
-
-        return orderResponseMono;
     }
 
     @Override
     public Mono<OrderResponseDTO> rollback(OrderRequestDTO request) {
-        Mono<OrderResponseDTO> orderResponseMono = this.orderWebClient
+        return this.orderWebClient
                 .post()
                 .uri("/update")
                 .body(BodyInserters.fromValue(request))
                 .retrieve()
                 .bodyToMono(OrderResponseDTO.class);
+    }
 
-        return orderResponseMono;
+    public Mono<OrderResponseDTO> update(OrderRequestUpdateDTO request) {
+        return this.orderWebClient
+                .post()
+                .uri("/update")
+                .body(BodyInserters.fromValue(request))
+                .retrieve()
+                .bodyToMono(OrderResponseDTO.class);
     }
 }

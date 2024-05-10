@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.order.DTO.Order;
 import com.microservice.order.DTO.OrderRequestDTO;
+import com.microservice.order.DTO.OrderRequestUpdateDTO;
 import com.microservice.order.DTO.OrderResponseDTO;
 import com.microservice.order.services.OrderService;
 
@@ -18,17 +19,23 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    OrderService inventoryService;
+    OrderService orderService;
 
     @PostMapping("/create")
     public ResponseEntity<OrderResponseDTO> create(@RequestBody OrderRequestDTO requestBody) {
-        OrderResponseDTO inventoryResponse = inventoryService.create(requestBody);
-        return ResponseEntity.ok().body(inventoryResponse);
+        OrderResponseDTO orderResponse = orderService.create(requestBody);
+        return ResponseEntity.ok().body(orderResponse);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<OrderResponseDTO> update(@RequestBody OrderRequestUpdateDTO requestBody) {
+        OrderResponseDTO orderResponse = orderService.update(requestBody);
+        return ResponseEntity.ok().body(orderResponse);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Order>> getOrders() {
-        List<Order> orders = inventoryService.getAll();
+        List<Order> orders = orderService.getAll();
         return ResponseEntity.ok().body(orders);
     }
 }

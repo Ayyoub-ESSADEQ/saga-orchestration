@@ -2,27 +2,28 @@
     "configurations": [
         {
             "type": "java",
-            "name": "InventoryApplication",
+            "name": "inventory-service",
             "request": "launch",
             "mainClass": "com.microservice.inventory.InventoryApplication"
         },
         {
             "type": "java",
-            "name": "PaymentApplication",
+            "name": "payment-service",
             "request": "launch",
             "mainClass": "com.microservice.order.PaymentApplication",
             "projectName": "payment"
         },
         {
             "type": "java",
-            "name": "InventoryApplication",
+            "name": "Inventory-service",
             "request": "launch",
             "mainClass": "com.microservice.inventory.InventoryApplication",
-            "projectName": "inventory"
+            "projectName": "inventory",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=62816 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=inventory"
         },
         {
             "type": "java",
-            "name": "Spring Boot-InventoryApplication<inventory>",
+            "name": "inventory-service",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.inventory.microservice.InventoryApplication",
@@ -32,7 +33,7 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-InventoryApplication<payment>",
+            "name": "inventory-service",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.microservice.inventory.InventoryApplication",
@@ -42,21 +43,33 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-OrderApplication<order>",
+            "name": "order-service",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.microservice.order.OrderApplication",
             "projectName": "order",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=65063 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=order"
         },
         {
             "type": "java",
-            "name": "Spring Boot-OrchestratorApplication<orchestrator>",
+            "name": "order-processing-service",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.microservice.orchestrator.OrchestratorApplication",
             "projectName": "orchestrator",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=62867 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=orchestrator"
+        },
+        {
+            "type": "java",
+            "name": "payment-service",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.microservice.payment.PaymentApplication",
+            "projectName": "payment",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
